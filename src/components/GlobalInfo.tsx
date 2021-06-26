@@ -6,7 +6,9 @@ interface Props {
   newRecovered: number
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  text-align: center;
+`
 
 const GlobalInfo: React.FunctionComponent<Props> = ({
   newConfirmed,
@@ -14,12 +16,12 @@ const GlobalInfo: React.FunctionComponent<Props> = ({
   newRecovered,
 }) => {
   return (
-    <div>
+    <Wrapper>
       <h1>전세계 코로나 현황</h1>
       <h3>신규 확진자: {new Intl.NumberFormat().format(newConfirmed)}</h3>
       <h3>신규 사망자: {new Intl.NumberFormat().format(newDeaths)}</h3>
       <h3>신규 회복자: {new Intl.NumberFormat().format(newRecovered)}</h3>
-    </div>
+    </Wrapper>
   )
 }
 
