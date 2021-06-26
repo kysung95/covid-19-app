@@ -13,7 +13,6 @@ const App: React.FunctionComponent = () => {
     const data: ResponseData = await result.json()
 
     setData(data)
-    console.log(data)
   }
 
   useEffect(() => {
@@ -21,7 +20,18 @@ const App: React.FunctionComponent = () => {
   }, [])
 
   const onCountryClick = (country: Country) => {
-    setActiveCountries([...activeCountries, country])
+    const countryIndex = activeCountries.findIndex(
+      activeCountry => activeCountry.ID === country.ID
+    )
+
+    if (countryIndex > -1) {
+      //중복 제거 처리
+      const newActiveCountries = [...activeCountries]
+      newActiveCountries.splice(countryIndex, 1)
+      setActiveCountries(newActiveCountries)
+    } else {
+      setActiveCountries([...activeCountries, country])
+    }
   }
 
   return (
