@@ -1,8 +1,12 @@
+import styled from "@emotion/styled"
+
 interface Props {
   newConfirmed: number
   newDeaths: number
   newRecovered: number
 }
+
+const Wrapper = styled.div``
 
 const GlobalInfo: React.FunctionComponent<Props> = ({
   newConfirmed,

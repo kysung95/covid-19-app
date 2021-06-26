@@ -5,6 +5,7 @@ export type Country = {
     ID: string
     NewConfirmed: number
     NewDeaths: number
+    NewRecovered: number
     Premium: unknown
     Slug: string
     TotalConfirmed: number
