@@ -3,6 +3,7 @@ import CountryList from "./components/CountryList"
 import GlobalInfo from "./components/GlobalInfo"
 import type { ResponseData, Country } from "./types"
 import { Global, css } from "@emotion/react"
+import BarChart from "./components/BarChart"
 
 const App: React.FunctionComponent = () => {
   const [data, setData] = useState<ResponseData | undefined>(undefined)
@@ -52,6 +53,10 @@ const App: React.FunctionComponent = () => {
             newDeaths={data?.Global.NewDeaths}
             newRecovered={data?.Global.NewRecovered}
           />
+
+          {activeCountries.length ? (
+            <BarChart countries={activeCountries} />
+          ) : null}
 
           <CountryList
             countries={data.Countries}
